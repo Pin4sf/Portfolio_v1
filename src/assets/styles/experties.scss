@@ -1,0 +1,197 @@
+@import "./base.scss";
+.experties{
+    position: relative;
+    background: $darkish-blue;
+    color: white;
+    &__header{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        .instructor{
+            position: relative;
+            background: #28316013;
+            box-shadow: 0 8px 32px 0 $box-shadow-blue1;
+            &__curve {
+                position: absolute;
+                top: -10px;
+                left: 20px;
+                width: 30%;
+                height: 120%;
+                border-radius: 50%;
+                transform: rotate(-20deg);
+                box-shadow: 0 8px 32px 0 $box-shadow-blue2;
+            }
+            &__infos {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-size: 17px;
+                font-family: monospace;
+            }
+            &__img {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%;
+                border-right: 2px solid $green-color;
+                border-left: 2px solid red;
+            }
+            &__col {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            &__info{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    }
+}
+.swiper__wrapper{
+    padding: 2rem 0;
+}
+.swiper{
+    user-select: none;
+}
+.review{
+    position: relative;
+    display: flex;
+    font-size: 20px;
+    padding: 5px;
+    &__card{
+        position: relative;
+        width: 100%;
+        padding: 2rem 0;
+        display: flex;
+    }
+    &__topborder{
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+    }
+    &__text{
+        span{
+            font-family: 'Amatic SC', cursive;
+            font-stretch: expanded;
+            font-size: 32px;
+            font-weight: 700px;
+            color: $green-color;
+            @media (max-width:600px) {
+                &{
+                    font-size:28px;
+                    font-weight: 400px;
+                    font-stretch: condensed;
+                }
+            }
+        }
+        i{
+            font-family: 'Amatic SC', cursive;
+            font-stretch: expanded;
+            font-size: 40px;
+            font-weight: 700px;
+            color: $green-color;
+            @media (max-width:600px) {
+                &{
+                    font-size:28px;
+                    font-weight: 400px;
+                    font-stretch: condensed;
+                }
+            }
+        }
+        h3{
+            font-family: 'Montserrat Alternates';
+            font-size: 22px;
+            font-weight: 400 ;
+            color: teal;
+        }
+    }
+    &__techlist{
+        background-color: #000;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 700px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+            color: #fff;
+        }
+        li::before {
+            content: "\2022";
+            color: #4CAF50;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    }
+    &__btn{
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-size: 52px;
+        font-weight: 700;
+        left: 8rem;
+        font-family: 'Amatic SC', cursive;
+        color: $dark-green-color;
+        &:before{
+            position: absolute;
+            top: 15rem;
+            width: 100%;
+            height: 4px;
+            background: teal;
+            transform: scale3d(0,1,1);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+            content:"Click to see 2022-23";
+        }
+        &:after{
+            position: absolute;
+            height: 100%;
+            top: 10rem;
+            transform: translate3d(150%,0,0);
+            transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+            content: attr(data-text);
+            color: $green-color;
+        }
+        & span{
+            transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+        }
+        &:hover:before{
+            transform: scale3d(1,1,1);
+            transform-origin: left;
+        }
+        &:hover:after{
+            transform: translate3d(0,0,0);
+        }
+        &:hover span{
+            transform: translate3d(-150%,0,0);
+        }
+        @media (width:800px) {
+            &__btn{
+                display: none;
+                font-size: 32;
+                font-stretch: extra-condensed;
+            }
+        }
+    }
+}
+.swiper-slide{
+    filter: blur(2px);
+    transform: scale(0.5);
+    transition: all 0.2s;
+}
+.swiper-slide-active{
+    filter: blur(0) !important;
+    transform: scale(1);
+}

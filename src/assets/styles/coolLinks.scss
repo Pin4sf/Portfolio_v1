@@ -1,0 +1,178 @@
+.coolLinks{
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    &:before{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        transform: scale3d(0,1,1);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+    }
+    &:after{
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transform: translate3d(150%,0,0);
+        transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+    }
+    & span{
+        transition: transform 0.4s cubic-bezier(0.5,0.5,0.3,1);
+    }
+    &:hover:before{
+        transform: scale3d(1,1,1);
+        transform-origin: left;
+    }
+    &:hover:after{
+        transform: translate3d(0,0,0);
+    }
+    &:hover span{
+        transform: translate3d(-150%,0,0);
+    }
+}
+.coolButton{
+    position: relative;
+    border: none;
+    cursor: pointer;
+    width: 175px;
+    height: 120px;
+    background: none;
+    color: #fff;
+    &:before,
+    &:after{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &:before{
+        content: "";
+        background: #fff;
+        clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+        transition: clip-path 0.4s cubic-bezier(0.585,2.5,0.665,0.887);
+    }
+    &:hover:before{
+        background: #efe8e8e1;
+        clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+    }
+    & span{
+        mix-blend-mode: difference;
+        font-weight: 500;
+        font-size: 28px;
+    }
+    &:after{
+        content: "";
+        height: 85%;
+        width: 96%;
+        border: 2px solid #fff;
+        border-radius: 58% 42% 55% 45% / 56% 45% 55% 44%;
+        transform: rotate(-20deg);
+        transition: transform 0.5s cubic-bezier(0.585,2.5,0.665,0.887);
+    }
+    &:hover:after{
+        transform: rotate(0deg);
+    }
+    @media (max-width:800px){
+        &{
+            transform: scale3d(0.7,0.7,0.7);
+            font-size: 23px;
+        }
+    }
+}
+
+.coloredIcon{
+    color: #fff;
+    font-size: 35px;
+    &:hover{
+        animation: coloredIconAnimation 0.2s infinite alternate;
+    }
+    @keyframes coloredIconAnimation{
+        0%{
+            text-shadow: 5px 4px red, -5px -6px #00ffff ;
+        }
+        25%{
+            text-shadow: -5px -6px red, 5px 4px #00ffff ;;
+        }
+        50%{
+            text-shadow: -6px 2px #e1009d, 8px -3px #c7f400 ;;
+        }
+        75%{
+            text-shadow: 7px -2px #13941c, -5px 8px #2200ff ;;
+        }
+        100%{
+            text-shadow: 6px 3px rgb(255, 145, 0), -7px -2px #00ffff ;;
+        }
+    }
+}
+.coolCircleEyeButton{
+    position: relative;
+    display: inline-block;
+    .textcircle{
+        display: block;
+        width: 250px;
+        //mix-blend-mode: difference;
+        animation: rotatte 6s infinite linear;
+        text{
+            font-size: 34px;
+            font-weight: 400;
+            text-transform: uppercase;
+            fill: #000000;
+        }
+    }
+    @keyframes rotatte{
+        to{
+            transform: rotate(-360deg);
+        }
+    }
+    &:hover{
+        text{
+            font-weight: 700;
+        }
+        .eye__inner,.eye__iris,.eye__lashes-up{
+            animation: hide 2s step-end infinite;
+            @keyframes hide{
+                0%{
+                    opacity: 0;
+                }
+                10%{
+                    opacity: 1;
+                }
+            }
+        }
+        .eye__lashes-down{
+            animation: show 2s step-end infinite;
+            @keyframes show{
+                0%{
+                    opacity: 1;
+                }
+                10%{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+.eye{
+    position:absolute;
+    width: 6px px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    &__outer,&__inner,&__lashes-up,&__lashes-down{
+        stroke: #000;
+        fill: none;
+        stroke-width: 1.5px;
+    }
+    &__lashes-down{
+        opacity: 0;
+    }
+}

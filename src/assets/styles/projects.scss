@@ -1,0 +1,160 @@
+.projects{
+  background: #ae9054ea;
+  &__header {
+    font-family: 'Montserrat Alternates';
+    font-size: 60px;
+    font-style: italic;
+    padding-bottom: 10px;
+  }
+}
+
+.project{
+  &__header{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+    font-family: 'Comic Neue', cursive;
+    span{
+      border-top: 1px solid black;
+      padding: 1rem;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+  &__infos{
+    margin-top: 1rem;
+    &--name{
+      position: relative;
+      font-family: 'Comic Neue', sans-serif;
+      display: flex;
+      font-size: 3vw;
+      align-items: center;
+      font-weight: 700;
+    }
+  }
+  &__img{
+    position: relative;
+    width: 95vw;
+    height: 600px;
+    img{
+      width: 55vw;
+      height: 500px;
+      object-fit: cover;
+      position: absolute;
+      right: 10vh;
+      top: 3rem;
+    }
+  }
+  &__links{
+    padding-top: 3rem;
+    button{
+      &:before{
+        background: #000;
+      }
+      &:after{
+        display: none ;
+      }
+    }
+    & span{
+      font-size: 30px;
+      font-family: 'Comic Neue' , sans-serif ;
+    }
+  }
+  &__tags{
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+.coolFunnyLink{
+  position: relative;
+  font-family: "comic Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  svg{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    stroke-width: 2px;
+    width: 98px;
+    path{
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 0.3s cubic-bezier(0.7,0,0.3,1);
+    }
+  }
+  &:hover{
+    svg{
+      path{
+        stroke-dashoffset: 0;
+        transition-timing-function: cubic-bezier(0.8,1,0.7,1);
+      }
+    }
+  }
+}
+
+@media (max-width:1300px) {
+  .projects{
+    padding:3rem;
+  }
+  .project__img img{
+    width: 74vw;
+    right:5rem
+  }
+  .project__infos--name{
+    font-size: 36px;
+  }
+  .project .coolCircleEyeButton{
+    transform: translate(-14rem, -3rem);
+  }
+}
+
+@media (max-width: 740px){
+  .projects {
+    padding: 1rem;
+  }
+  .project__tags{
+    flex-direction: row;
+    top: 0;
+    left: 0;
+  }
+  .project__infos--name{
+    font-size: 33px;
+    span{
+      display:none;
+    }
+  }
+  .project__img img{
+    width: 85vw;
+    right: 3rem;
+  }
+}
+@media (max-width: 500px){
+  .project__infos--name{
+    font-size: 28px;
+  }
+  .project__img img{
+    width: 90vw;
+    right: 1rem;
+  }
+}
+@media (max-width: 400px){
+  .project__infos--name{
+    font-size: 24px;
+  }
+  .project__img img{
+    width: 95vw;
+    right: 0;
+  }
+  .project .coolCircleEyeButton{
+    transform: translate(0);
+  }
+  .project__tags{
+    gap: 5px;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+  }
+}
